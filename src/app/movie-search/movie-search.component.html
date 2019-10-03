@@ -1,0 +1,17 @@
+
+  <!-- Search -->
+  <div id="search">
+    <form [formGroup]="myForm">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Películas" id="inputSearch" formControlName="search" (keyup)='keyUp($event)'>
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="getSearch()">Buscar</button>
+    </form>
+  </div>
+  <!-- Search end -->
+  <div id="container" *ngIf="isLoading">
+    <mat-spinner></mat-spinner>
+  </div>
+  <ul>
+    <li *ngFor="let item of searchResult"><a routerLink="/detail/{{item.id}}" [queryParams]="{origin:'search'}">{{item.title}}</a></li>
+  </ul>

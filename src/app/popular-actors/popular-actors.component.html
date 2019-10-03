@@ -1,0 +1,25 @@
+<h1 #h1>Actores populares</h1>
+<div id="container" *ngIf="isLoading">
+  <mat-spinner diameter="50"></mat-spinner>
+</div>
+<mat-grid-list [cols]="resizeCols" [rowHeight]="resizeRows" (window:resize)="onWindowResize($event)">
+  <mat-grid-tile *ngFor="let item of popularActorsResult" >
+    <a routerLink="/actor-detail/{{item.id}}">
+      <div class="card">
+        <div class="imgContainer">
+            <img src="{{urlImg}}{{item.profile_path}}" alt="">
+        </div>
+        <h3>{{item.name}}</h3>
+        <ul>
+          <li *ngFor="let it of item.known_for">{{it.title | truncate: 48}}</li>
+        </ul>
+      </div>
+    </a>
+  </mat-grid-tile>
+</mat-grid-list>
+<mat-paginator 
+  id="#paginator"
+  [length]="500"
+  [pageSize]="20"
+  (page)="navigate($event)">
+</mat-paginator>

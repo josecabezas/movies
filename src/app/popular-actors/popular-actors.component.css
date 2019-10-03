@@ -1,0 +1,41 @@
+#container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 400px;
+  justify-content: center;
+}
+
+.card {
+  width: 90%;padding: 12px;
+  position: relative;
+  -webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.75);
+  min-height: 378px;
+  border-radius: 5px;
+}
+
+.card img {
+  width: 100%;
+}
+mat-grid-list a {
+  text-decoration: none;
+  color: #000000;
+}
+.imgContainer {
+  height: 300px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+h3 {
+  margin: 4px 0;
+}
+
+.card ul {
+  list-style: none;
+  padding-left: 0;
+  font-size: 12px;
+  margin: 0;
+}

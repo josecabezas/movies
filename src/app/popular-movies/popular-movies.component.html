@@ -1,0 +1,39 @@
+<h1 #h1>Películas populares</h1>
+<form [formGroup]="filterForm">
+  <mat-form-field>
+    <mat-label>Géneros</mat-label>
+    <mat-select formControlName="genresSelect" (selectionChange)="genresOnChange()">
+      <mat-option *ngFor="let item of genres" value="{{item.id}}">
+        {{item.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>
+<div id="container" *ngIf="isLoading">
+  <mat-spinner></mat-spinner>
+</div>
+<mat-grid-list [cols]="resizeCols" [rowHeight]="resizeRows" (window:resize)="onWindowResize($event)">
+  <mat-grid-tile *ngFor="let item of popularMoviesResult" >
+    <a class="item" routerLink="/detail/{{item.id}}" [queryParams]="{origin:'popular-movies'}">
+      <div class="card">
+        <div class="title">
+          <div class="rating">
+            {{item.vote_average}}
+          </div>
+          <div>
+            <h3>{{item.title | truncate: 21}}</h3>
+            <p class="subtitle">{{item.release_date | dateTransform}}</p>
+          </div>
+        </div>
+        <img src="{{urlImg}}{{item.backdrop_path}}" alt="">
+        <p class="description">{{item.overview | truncate: 98}}</p>
+      </div>
+    </a>
+  </mat-grid-tile>
+</mat-grid-list>
+<mat-paginator 
+  id="#paginator"
+  [length]="500"
+  [pageSize]="20"
+  (page)="navigate($event)">
+</mat-paginator>

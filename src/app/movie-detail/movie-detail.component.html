@@ -1,0 +1,9 @@
+
+<button mat-fab color="primary" (click)="getBack()">
+    <mat-icon>keyboard_arrow_left</mat-icon>
+</button>
+<h1>{{resultValues.title}}</h1>
+<div>  
+<img *ngIf="haveImage" src="{{resultValues.backdrop_path}}" alt="">
+<p>{{resultValues.overview}}</p>
+</div>

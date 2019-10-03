@@ -1,0 +1,50 @@
+#container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 400px;
+  justify-content: center;
+}
+#moviesList {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.card {
+  border-radius: 5px;
+  border: solid 1px #ccc;
+  padding: 12px;
+  width: 90%;
+  cursor: pointer;
+  min-height: 323.66px;
+}
+.item {
+  text-decoration: none;
+}
+.card img {
+  width: 100%;
+}
+.card h3 {
+  margin: 4px 0;
+  color: #000;
+}
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.subtitle {
+  margin-top: 0;
+  color: #000;
+}
+.rating {
+  margin-right: 6px;
+  font-size: 18px;
+  font-weight: 800;
+  background: #ccc;
+  color: #fff;
+}
+.description {
+  color: #000;
+}
